@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You</title>
+
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: 'My Bacha', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #text {
+    font-size: 28px;
+    text-align: center;
+    max-width: 80%;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .hint {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    opacity: 0.5;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="text"></div>
+<div class="hint">tap anywhere</div>
+
+<script>
+const messages = [
+  "I don’t usually do this...",
+  "But there are things jo mene kiya hai pallku",
+  "chahe mene gusse me hi kyu na kiya hoo lekin jo galat hai vo galat hai",
+  "Maybe I was scared",
+  "Maybe me kuch jayada sochna laga tha pallku",
+  "lekin meri jaan tu mere liye meri zindagi hai",
+  "But if you're reading this...",
+  "Just know...",
+  "You mattered more than you think ❤️",
+  "I Love you my Bacha",
+  "can i  ask you to marry me mujhse shaaddi karogi",
+  "taki hamari cute si family hoo 1 girl and 1 boy dono tere jaise cuites",
+  "I Love you my pallu"
+];
+
+let index = 0;
+const text = document.getElementById("text");
+
+function showMessage() {
+  if (index < messages.length) {
+    text.style.opacity = 0;
+
+    setTimeout(() => {
+      text.innerText = messages[index];
+      text.style.opacity = 1;
+      index++;
+    }, 500);
+  }
+}
+
+document.body.addEventListener("click", showMessage);
+
+// Start first message automatically
+setTimeout(showMessage, 500);
+</script>
+
+</body>
+</html>
